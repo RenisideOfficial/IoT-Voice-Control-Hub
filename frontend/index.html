@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./styles/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Real Time Voice</h1>
+
+      <div class="controls">
+        <select id="lang">
+          <option value="en-US">English (US)</option>
+          <option value="en-GB">English (UK)</option>
+          <option value="fr-FR">French</option>
+          <option value="de-DE">German</option>
+        </select>
+
+        <button id="connectBtn">Connect</button>
+        <button id="recordBtn" disabled>Start Recording</button>
+        <p id="status" class="status">Disconnected</p>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">Final Transcripts</div>
+        <div id="final" class="final scroll"></div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head">Debug Log</div>
+        <pre id="log" class="scroll"></pre>
+      </div>
+    </div>
+  </body>
+  <script src="./js/script.js"></script>
+</html>
