@@ -29,14 +29,14 @@ function setStatus(text) {
 
 connectBtn.onclick = () => connectWS();
 langSel.onchange = () => {
-  // if not connected to backend
+  // if connected to backend
   if (socket && socket.readyState === WebSocket.OPEN) {
     socket.send(JSON.stringify({ type: "lang", value: langSel.value }));
   }
 };
 
 async function connectWS() {
-  // if not connected to backend
+  // if connected to backend
   if (socket && socket.readyState === WebSocket.OPEN) return;
   socket = new WebSocket(serverUrl);
   socket.binaryType = "arraybuffer";
