@@ -20,7 +20,6 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
@@ -32,6 +31,46 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:5500", "http://localhost:3000"]
+
+# ---------- CORS Headers Config ----------
+
+# Allow specific origins (frontend URLs)
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:5500",  # live server testing
+    "http://localhost:3000",   # React/Next.js dev server
+]
+
+# Allow cookies (for session-based auth)
+CORS_ALLOW_CREDENTIALS = True
+
+# Allow specific HTTP methods
+CORS_ALLOW_METHODS = [
+    "GET",
+    "POST",
+    "PUT",
+    "PATCH",
+    "DELETE",
+    "OPTIONS"
+]
+
+# Allow specific headers (for JWT, CSRF, and auth)
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+]
+
+# Optionally expose some headers to the frontend
+CORS_EXPOSE_HEADERS = [
+    "Content-Type",
+    "Authorization",
+]
 
 # Application definition
 
@@ -45,6 +84,7 @@ INSTALLED_APPS = [
     'channels',
     'corsheaders',
     'command',
+    'auth',
 ]
 
 MIDDLEWARE = [
@@ -59,6 +99,10 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'main.urls'
+CLIENT_ID_ANDROID=""
+CLIENT_ID_WEB=""
+FRONTEND_URL="http://127.0.0.1:5500/"
+
 
 TEMPLATES = [
     {
@@ -129,3 +173,9 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Load in settings for use in other filez
+MONGO_URI = os.getenv("MONGO_URI")
+MONGO_DB_NAME = os.getenv("MONGO_DB_NAME")
+MONGO_USER = os.getenv("MONGO_USER")
+MONGO_PASS = os.getenv("MONGO_PASS")

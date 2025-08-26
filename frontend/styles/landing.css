@@ -1,0 +1,109 @@
+/* ========== Global Styles for Landing Page ========== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0b1020;
+  color: #e7ecff;
+}
+
+.landing-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 20px;
+}
+
+.hero {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.btn,
+.btn-outline {
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin: 0 10px;
+  display: inline-block;
+}
+
+.btn {
+  background: #2c3795;
+  color: white;
+}
+
+.btn-outline {
+  border: 2px solid #2c3795;
+  color: #2c3795;
+}
+
+.features {
+  max-width: 800px;
+}
+
+.features h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.features ul {
+  list-style: none;
+  padding: 0;
+}
+
+.features ul li {
+  margin: 10px 0;
+  padding: 10px;
+  background: #121836;
+  border-radius: 8px;
+}
+
+/* ========== Responsive Media Queries ========== */
+@media (max-width: 1024px) {
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.9rem;
+  }
+
+  .btn,
+  .btn-outline {
+    padding: 10px 18px;
+    font-size: 0.9rem;
+    margin: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.8rem;
+  }
+}

@@ -1,0 +1,107 @@
+/* ========== Global Styles ========== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0b1020;
+  color: #e7ecff;
+}
+
+.features-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+/* ========== Hero Section ========== */
+.hero {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  opacity: 0.8;
+  max-width: 700px;
+  margin: auto;
+}
+
+/* ========== Features Cards ========== */
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.feature-card {
+  background: #121836;
+  padding: 30px 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.feature-card h2 {
+  margin-bottom: 10px;
+}
+
+.feature-card p {
+  opacity: 0.85;
+  font-size: 0.95rem;
+}
+
+/* ========== Responsive Media Queries ========== */
+@media (max-width: 1024px) {
+  .features-list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .hero p {
+    font-size: 0.95rem;
+  }
+
+  .feature-card {
+    padding: 25px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.6rem;
+  }
+
+  .hero p {
+    font-size: 0.85rem;
+  }
+
+  .feature-card {
+    padding: 20px 10px;
+  }
+}

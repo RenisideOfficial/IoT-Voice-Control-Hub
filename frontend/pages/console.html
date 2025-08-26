@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alpha Console</title>
+    <link rel="stylesheet" href="../styles/console.css" />
+  </head>
+  <body>
+    <div class="console-container">
+      <!-- Sidebar -->
+      <aside class="sidebar">
+        <h2>Alpha</h2>
+        <nav>
+          <ul>
+            <li class="active" data-section="home">Home</li>
+            <li data-section="lamp">Lamp</li>
+            <li data-section="fan">Fan</li>
+            <li data-section="ac">AC</li>
+          </ul>
+        </nav>
+      </aside>
+
+      <!-- Hamburger -->
+      <div id="hamburger" class="hamburger">☰</div>
+
+      <!-- Main Panel -->
+      <main class="main-panel">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+          <h1>Home</h1>
+          <div class="toggle-container">
+            <span>Main Power</span>
+            <button id="mainToggle" class="toggle-btn">OFF</button>
+          </div>
+
+          <!-- Voice Panel -->
+          <div class="voice-panel">
+            <select id="lang">
+              <option value="en-US">English (US)</option>
+              <option value="en-GB">English (UK)</option>
+              <option value="fr-FR">French</option>
+              <option value="de-DE">German</option>
+            </select>
+            <button id="connectBtn">Connect to SR</button>
+            <button id="recordBtn" disabled>Start Recording</button>
+            <p id="status" class="status">Disconnected</p>
+            <div id="final" class="scroll"></div>
+            <pre id="log" class="scroll"></pre>
+          </div>
+        </section>
+
+        <!-- Lamp Section -->
+        <section id="lamp" class="section">
+          <h1>Lamp</h1>
+          <button class="toggle-btn">OFF</button>
+        </section>
+
+        <!-- Fan Section -->
+        <section id="fan" class="section">
+          <h1>Fan</h1>
+          <button class="toggle-btn">OFF</button>
+        </section>
+
+        <!-- AC Section -->
+        <section id="ac" class="section">
+          <h1>AC</h1>
+          <button class="toggle-btn">OFF</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="../js/console.js"></script>
+  </body>
+</html>

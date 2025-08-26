@@ -1,0 +1,92 @@
+/* ========== Global Styles for Auth Page ========== */
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background: #0b1020;
+  color: #e7ecff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.auth-box {
+  background: #121836;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 350px;
+  max-width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.auth-box h2 {
+  margin-bottom: 20px;
+}
+
+.auth-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.auth-box input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  margin: 5px 0;
+}
+
+.auth-box button {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2c3795;
+  color: white;
+  cursor: pointer;
+}
+
+.auth-box p {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.auth-box span {
+  color: #2c3795;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* ========== Responsive Media Queries ========== */
+@media (max-width: 768px) {
+  .auth-box {
+    width: 90%;
+  }
+
+  .auth-box input,
+  .auth-box button {
+    font-size: 0.9rem;
+    padding: 20px 0 20px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .auth-box input,
+  .auth-box button {
+    font-size: 0.85rem;
+    padding: 6px;
+  }
+}
