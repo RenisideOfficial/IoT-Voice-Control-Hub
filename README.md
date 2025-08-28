@@ -19,15 +19,15 @@ A lightweight system for **live speech-to-text transcription** using WebSockets.
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/RenisideOfficial/Real-Time-Speech-Recognition.git
-cd Real-Time-Speech-Recognition
+git clone https://github.com/RenisideOfficial/IoT-Voice-Control-Hub.git
+cd IoT-Voice-Control-Hub
 ```
 
 ### 2. Backend setup (Django + Channels)
 
 ```bash
 python -m venv .venv
-source '.venv'/bin/activate   # On Windows: . 'venv'\Scripts\activate
+source '.venv'/bin/activate   # On Windows: . '.venv'/Scripts/activate
 pip install -r requirements.txt
 ```
 
