@@ -85,6 +85,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'command',
     'auth',
+    'user',
 ]
 
 MIDDLEWARE = [
@@ -120,7 +121,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'main.wsgi.application'
-# ASGI_APPLICATION = 'main.asgi.application'
+ASGI_APPLICATION = 'main.asgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
@@ -130,6 +131,12 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
+}
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels.layers.InMemoryChannelLayer',
+    },
 }
 
 

@@ -1,6 +1,4 @@
 import json
-from datetime import datetime
-from bson.objectid import ObjectId
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_POST
@@ -11,12 +9,15 @@ from django.contrib.auth.hashers import make_password, check_password
 from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
 from django.shortcuts import redirect
-from google.oauth2 import id_token
-from google.auth.transport import requests as google_requests
 from django.conf import settings
 from config.config import MongoClientSingleton
 from config.token import generate_jwt, decode_jwt
 from .auth_helper import get_or_create_user_oauth
+
+# ----- TODO: I'll implement Google OAuth Later -----
+
+# from google.oauth2 import id_token
+# from google.auth.transport import requests as google_requests
 
 db = MongoClientSingleton.get_db()
 users = db['users']
@@ -109,11 +110,6 @@ def login_user(request):
 
         access = generate_jwt(str(user_data["_id"]), user_data["username"], user_data["email"])
 
-        users.update_one(
-            {"_id": ObjectId(user_data["_id"])},
-            {"$set": {"is_online": True, "last_seen": datetime.utcnow()}}
-        )
-
         response_user = {
             "id": str(user_data["_id"]),
             "username": user_data.get("username"),
@@ -147,13 +143,6 @@ def logout_user(request):
         if not payload:
             return JsonResponse({"status": "error", "message": "Invalid token"}, status=401)
 
-        user_id = payload["user_id"]
-
-        users.update_one(
-            {"_id": ObjectId(user_id)},
-            {"$set": {"is_online": False, "last_seen": datetime.utcnow()}}
-        )
-
         return JsonResponse({"status": "success", "message": "Logged out"}, status=200)
 
     except Exception as e:
@@ -180,6 +169,8 @@ class GoogleOAuth2CompleteView(APIView):
         redirect_url = f"{settings.FRONTEND_URL}/oauth?token={access_token}"
         return redirect(redirect_url)
 
+
+# ----- TODO: I'll implement Google OAuth Later -----
 
 # ---------------- Mobile Google Login ----------------
 # @csrf_exempt

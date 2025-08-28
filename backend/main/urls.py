@@ -7,6 +7,8 @@ from django.conf.urls.static import static # static for media files in dev
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('auth.urls')),
+    path('api/device/', include('command.urls')),
+    path('api/user/', include('user.urls'))
 ]
 
 # Serve media files during development (ONLY if DEBUG is True)
