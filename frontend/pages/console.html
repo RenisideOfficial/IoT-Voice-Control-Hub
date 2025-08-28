@@ -179,31 +179,120 @@
     </div>
 
     <!-- Settings Modal -->
+    <!-- Settings Modal -->
     <div id="settingsModal" class="modal">
       <div class="modal-content">
         <div class="modal-header">
           <h2>User Settings</h2>
-          <span class="close-modal">&times;</span>
+          <button class="close-modal">&times;</button>
         </div>
         <div class="modal-body">
-          <div class="setting-item">
-            <label>Theme</label>
-            <select id="themeSelect">
-              <option value="light">Light</option>
-              <option value="dark">Dark</option>
-              <option value="auto">Auto</option>
-            </select>
-          </div>
-          <div class="setting-item">
-            <label>Language</label>
-            <select id="languageSelect">
-              <option value="en">English</option>
-              <option value="fr">French</option>
-              <option value="de">German</option>
-              <option value="es">Spanish</option>
-            </select>
-          </div>
-          <button class="save-settings">Save Settings</button>
+          <form id="userSettingsForm">
+            <div class="setting-item">
+              <label>Username</label>
+              <input
+                type="text"
+                id="usernameInput"
+                placeholder="Username"
+                required />
+            </div>
+
+            <div class="setting-item">
+              <label>Email</label>
+              <input
+                type="email"
+                id="emailInput"
+                placeholder="Email"
+                required />
+            </div>
+
+            <div class="setting-item">
+              <label>Bio</label>
+              <textarea
+                id="bioInput"
+                placeholder="Tell us about yourself"
+                rows="3"></textarea>
+            </div>
+
+            <div class="setting-item">
+              <label>Theme</label>
+              <select id="themeSelect">
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+                <option value="auto">Auto</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label>Language</label>
+              <select id="languageSelect">
+                <option value="en">English</option>
+                <option value="fr">French</option>
+                <option value="de">German</option>
+                <option value="es">Spanish</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label>Preferred Input Mode</label>
+              <select id="inputModeSelect">
+                <option value="text">Text</option>
+                <option value="voice">Voice</option>
+              </select>
+            </div>
+
+            <div class="setting-item">
+              <label>Accessibility Settings</label>
+              <div class="checkbox-group">
+                <label>
+                  <input type="checkbox" id="ttsEnabled" /> Text-to-Speech
+                </label>
+                <label>
+                  <input type="checkbox" id="sttEnabled" /> Speech-to-Text
+                </label>
+              </div>
+            </div>
+
+            <div class="setting-item">
+              <label>Timezone</label>
+              <select id="timezoneSelect">
+                <option value="UTC">UTC</option>
+                <option value="EST">Eastern Time (EST)</option>
+                <option value="PST">Pacific Time (PST)</option>
+                <option value="CET">Central European Time (CET)</option>
+                <!-- Add more timezones as needed :) -->
+              </select>
+            </div>
+
+            <hr />
+
+            <h3>Change Password</h3>
+            <div class="setting-item">
+              <label>Current Password</label>
+              <input
+                type="password"
+                id="currentPassword"
+                placeholder="Current password" />
+            </div>
+
+            <div class="setting-item">
+              <label>New Password</label>
+              <input
+                type="password"
+                id="newPassword"
+                placeholder="New password" />
+            </div>
+
+            <div class="setting-item">
+              <label>Confirm New Password</label>
+              <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm new password" />
+            </div>
+
+            <button type="submit" class="save-settings">Save Settings</button>
+          </form>
         </div>
       </div>
     </div>

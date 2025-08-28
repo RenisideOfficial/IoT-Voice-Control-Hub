@@ -1,46 +1,7 @@
-import axios from "https://cdn.jsdelivr.net/npm/axios@1.6.7/dist/esm/axios.min.js";
+import { apiClient } from "../interceptor/interceptor.js";
+import { API_BASE_URL } from "../constants/base.js";
 
-// Base URL for Django API
-const API_BASE_URL = "http://localhost:8000/api";
-
-// axios instance with default config
-const apiClient = axios.create({
-  baseURL: API_BASE_URL,
-  headers: {
-    "Content-Type": "application/json",
-  },
-});
-
-// Request interceptor to add auth token (alpha_token)
-apiClient.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("alpha_token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
-  (error) => {
-    return Promise.reject(error);
-  }
-);
-
-// Response interceptor to handle auth errors
-apiClient.interceptors.response.use(
-  (response) => response,
-  (error) => {
-    if (error.response?.status === 401) {
-      localStorage.removeItem("alpha_token");
-      localStorage.removeItem("user");
-      alert("Session expired. Please login again.");
-      window.location.href = "/auth";
-    }
-    return Promise.reject(error);
-  }
-);
-
-// --- Exported functions ---
-
+// Auth functions
 export async function registerUser(username, email, password) {
   try {
     const response = await apiClient.post("/auth/register/", {
@@ -74,15 +35,6 @@ export async function logoutUser() {
     return response.data;
   } catch (error) {
     throw new Error(error.response?.data?.message || "Logout failed");
-  }
-}
-
-export async function getProfile() {
-  try {
-    const response = await apiClient.get("/auth/profile/");
-    return response.data;
-  } catch (error) {
-    throw new Error(error.response?.data?.message || "Failed to fetch profile");
   }
 }
 

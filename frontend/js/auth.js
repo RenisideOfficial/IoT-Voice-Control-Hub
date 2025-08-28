@@ -2,8 +2,8 @@ import {
   registerUser,
   loginUser,
   initiateGoogleOAuth,
-  getProfile,
-} from "../interceptor/interceptor.js";
+} from "../api/handlers/auth.js";
+import { getProfile } from "../api/handlers/user.js";
 
 // Toggle between login and register forms
 const loginForm = document.getElementById("loginForm");
