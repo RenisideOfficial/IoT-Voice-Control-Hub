@@ -4,27 +4,71 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpha - Authentication</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="../styles/auth.css" />
   </head>
   <body>
     <div class="auth-container">
       <div class="auth-box">
-        <h2 id="formTitle">Login</h2>
+        <div class="logo">
+          <h1>Alpha Control</h1>
+          <p>Smart Home Automation</p>
+        </div>
+
+        <h2 id="formTitle">Login to Your Account</h2>
 
         <!-- Login Form -->
         <form id="loginForm">
-          <input type="text" placeholder="Username" required />
-          <input type="password" placeholder="Password" required />
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username or Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
           <button type="submit">Login</button>
+
+          <div class="divider">
+            <span>Or continue with</span>
+          </div>
+
+          <button type="button" class="google-btn">
+            <i class="fab fa-google"></i>
+            Sign in with Google
+          </button>
         </form>
 
         <!-- Register Form -->
         <form id="registerForm" class="hidden">
-          <input type="text" placeholder="Username" required />
-          <input type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
-          <input type="password" placeholder="Confirm Password" required />
-          <button type="submit">Register</button>
+          <div class="input-group">
+            <i class="fas fa-user"></i>
+            <input type="text" placeholder="Username" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-envelope"></i>
+            <input type="email" placeholder="Email" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Password" required />
+          </div>
+          <div class="input-group">
+            <i class="fas fa-lock"></i>
+            <input type="password" placeholder="Confirm Password" required />
+          </div>
+          <button type="submit">Create Account</button>
+
+          <div class="divider">
+            <span>Or continue with</span>
+          </div>
+
+          <button type="button" class="google-btn">
+            <i class="fab fa-google"></i>
+            Sign up with Google
+          </button>
         </form>
 
         <p id="toggleText">
@@ -33,6 +77,6 @@
       </div>
     </div>
 
-    <script src="../js/auth.js"></script>
+    <script type="module" src="../js/auth.js"></script>
   </body>
 </html>

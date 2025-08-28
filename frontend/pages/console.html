@@ -5,20 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpha Console</title>
     <link rel="stylesheet" href="../styles/console.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   </head>
   <body>
     <div class="console-container">
       <!-- Sidebar -->
       <aside class="sidebar">
-        <h2>Alpha</h2>
-        <nav>
-          <ul>
-            <li class="active" data-section="home">Home</li>
-            <li data-section="lamp">Lamp</li>
-            <li data-section="fan">Fan</li>
-            <li data-section="ac">AC</li>
-          </ul>
-        </nav>
+        <!-- Upper Section - Devices -->
+        <div class="sidebar-upper">
+          <a href="../landing.html">
+            <h2>Alpha Hub</h2>
+          </a>
+          <nav>
+            <ul>
+              <li class="active" data-section="home">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </li>
+              <li data-section="lamp">
+                <i class="fas fa-lightbulb"></i>
+                <span>Lamp</span>
+              </li>
+              <li data-section="fan">
+                <i class="fas fa-fan"></i>
+                <span>Fan</span>
+              </li>
+              <li data-section="ac">
+                <i class="fas fa-snowflake"></i>
+                <span>AC</span>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Lower Section - User Profile -->
+        <div class="sidebar-lower">
+          <div class="user-profile">
+            <div class="user-avatar">
+              <i class="fas fa-user-circle"></i>
+            </div>
+            <div class="user-info">
+              <span class="username" id="sidebarUsername">Loading...</span>
+              <div class="user-actions">
+                <button class="settings-btn" title="Settings">
+                  <i class="fas fa-cog"></i>
+                </button>
+                <button class="logout-btn" title="Logout" id="logoutBtn">
+                  <i class="fas fa-sign-out-alt"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
       </aside>
 
       <!-- Hamburger -->
@@ -28,12 +68,25 @@
       <main class="main-panel">
         <!-- Home Section -->
         <section id="home" class="section active">
-          <h1>Home</h1>
-          <div class="toggle-container">
-            <span>Main Power</span>
-            <button id="mainToggle" class="toggle-btn">OFF</button>
+          <div class="section-header">
+            <h1>Home Control</h1>
+            <div class="user-welcome">
+              Welcome, <span id="mainUsername">User</span>
+            </div>
           </div>
 
+          <div class="toggle-container">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <i class="fas fa-power-off"></i>
+                <span>Main Power</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" id="mainToggle" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
           <!-- Voice Panel -->
           <div class="voice-panel">
             <select id="lang">
@@ -52,24 +105,107 @@
 
         <!-- Lamp Section -->
         <section id="lamp" class="section">
-          <h1>Lamp</h1>
-          <button class="toggle-btn">OFF</button>
+          <div class="section-header">
+            <h1>Lamp Control</h1>
+            <div class="user-welcome">
+              Welcome, <span id="lampUsername">User</span>
+            </div>
+          </div>
+          <div class="toggle-container">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <i class="fas fa-lightbulb"></i>
+                <span>Lamp Power</span>
+              </div>
+              <label class="toggle-switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-device="lamp" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
         </section>
 
         <!-- Fan Section -->
         <section id="fan" class="section">
-          <h1>Fan</h1>
-          <button class="toggle-btn">OFF</button>
+          <div class="section-header">
+            <h1>Fan Control</h1>
+            <div class="user-welcome">
+              Welcome, <span id="fanUsername">User</span>
+            </div>
+          </div>
+          <div class="toggle-container">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <i class="fas fa-fan"></i>
+                <span>Fan Power</span>
+              </div>
+              <label class="toggle-switch">
+                <input
+                  type="checkbox"
+                  class="device-toggle"
+                  data-device="fan" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
         </section>
 
         <!-- AC Section -->
         <section id="ac" class="section">
-          <h1>AC</h1>
-          <button class="toggle-btn">OFF</button>
+          <div class="section-header">
+            <h1>AC Control</h1>
+            <div class="user-welcome">
+              Welcome, <span id="acUsername">User</span>
+            </div>
+          </div>
+          <div class="toggle-container">
+            <div class="toggle-item">
+              <div class="toggle-info">
+                <i class="fas fa-snowflake"></i>
+                <span>AC Power</span>
+              </div>
+              <label class="toggle-switch">
+                <input type="checkbox" class="device-toggle" data-device="ac" />
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+          </div>
         </section>
       </main>
     </div>
 
-    <script src="../js/console.js"></script>
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>User Settings</h2>
+          <span class="close-modal">&times;</span>
+        </div>
+        <div class="modal-body">
+          <div class="setting-item">
+            <label>Theme</label>
+            <select id="themeSelect">
+              <option value="light">Light</option>
+              <option value="dark">Dark</option>
+              <option value="auto">Auto</option>
+            </select>
+          </div>
+          <div class="setting-item">
+            <label>Language</label>
+            <select id="languageSelect">
+              <option value="en">English</option>
+              <option value="fr">French</option>
+              <option value="de">German</option>
+              <option value="es">Spanish</option>
+            </select>
+          </div>
+          <button class="save-settings">Save Settings</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="../js/console.js"></script>
   </body>
 </html>

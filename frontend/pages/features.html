@@ -4,62 +4,136 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Alpha - Features</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="../styles/features.css" />
   </head>
   <body>
     <div class="features-container">
       <header class="hero">
-        <h1>Discover Alpha IoT</h1>
+        <h1>Discover Alpha Control Hub</h1>
         <p>
-          Control your smart devices, automate your home, and monitor everything
-          in real-time with our intuitive IoT dashboard.
+          Explore the full capabilities of Alpha Control Hub with detailed
+          feature documentation.
         </p>
       </header>
 
-      <section class="features-list">
-        <div class="feature-card">
-          <h2>Real-Time Control</h2>
-          <p>
-            Switch your devices on or off instantly from any platform – web or
-            mobile.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h2>Voice Commands</h2>
-          <p>
-            Use natural voice commands to control appliances, integrating Alexa
-            or Google Assistant.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h2>Scheduling & Timers</h2>
-          <p>
-            Automate tasks daily, weekly, or custom schedules, so your devices
-            work for you.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h2>Custom Feedback</h2>
-          <p>
-            Receive audible feedback from your devices with custom
-            Text-to-Speech responses.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h2>Multi-Device Support</h2>
-          <p>
-            Control multiple devices with a single dashboard, keeping all your
-            electronics in sync.
-          </p>
-        </div>
-        <div class="feature-card">
-          <h2>Secure & Cross-Platform</h2>
-          <p>
-            Encrypted logins, device pairing, and compatibility across Android,
-            iOS, and web.
-          </p>
-        </div>
-      </section>
+      <div class="features-layout">
+        <!-- Sidebar -->
+        <nav class="features-sidebar">
+          <div class="sidebar-header">
+            <i class="fas fa-list"></i>
+            <h2>Features Menu</h2>
+          </div>
+          <ul>
+            <li>
+              <a href="#remote-control"
+                ><i class="fas fa-satellite-dish"></i> Remote Control</a
+              >
+            </li>
+            <li>
+              <a href="#voice-control"
+                ><i class="fas fa-microphone"></i> Voice Commands</a
+              >
+            </li>
+            <li>
+              <a href="#scheduling-timers"
+                ><i class="fas fa-clock"></i> Scheduling & Timers</a
+              >
+            </li>
+            <li>
+              <a href="#custom-feedback"
+                ><i class="fas fa-comment-dots"></i> Custom Feedback</a
+              >
+            </li>
+            <li>
+              <a href="#multi-device"
+                ><i class="fas fa-layer-group"></i> Multi-Device Support</a
+              >
+            </li>
+            <li>
+              <a href="#secure-cross-platform"
+                ><i class="fas fa-shield-alt"></i> Secure & Cross-Platform</a
+              >
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="features-content">
+          <section id="remote-control">
+            <h2><i class="fas fa-satellite-dish"></i> Remote Control</h2>
+            <p>
+              With Alpha Control Hub, you can turn appliances ON or OFF
+              instantly from any device. Whether you're at home or away, control
+              your devices in real-time with the web dashboard or mobile app.
+            </p>
+            <div class="feature-highlight">
+              Supported devices include lights, fans, air conditioners, smart
+              plugs, and other IoT-enabled appliances. The system provides
+              status feedback so you always know whether a device is active or
+              idle.
+            </div>
+          </section>
+
+          <section id="voice-control">
+            <h2><i class="fas fa-microphone"></i> Voice Commands</h2>
+            <p>
+              Control your appliances hands-free using natural voice commands.
+              Alpha integrates seamlessly with Alexa and Google Assistant,
+              allowing you to issue commands like "Turn on the living room
+              lights" or "Set the thermostat to 22°C".
+            </p>
+            <p>
+              Custom voice phrases can be added for a more personalized
+              experience.
+            </p>
+          </section>
+
+          <section id="scheduling-timers">
+            <h2><i class="fas fa-clock"></i> Scheduling & Timers</h2>
+            <p>
+              Automate your devices with daily, weekly, or custom schedules. You
+              can set lights to turn on at sunset, or have the coffee maker
+              start brewing in the morning automatically.
+            </p>
+            <div class="feature-highlight">
+              The scheduling engine is flexible and allows you to combine
+              conditions, timers, and recurring events for full automation.
+            </div>
+          </section>
+
+          <section id="custom-feedback">
+            <h2><i class="fas fa-comment-dots"></i> Custom Feedback</h2>
+            <p>
+              Receive notifications and audible responses from your devices.
+              Alpha supports Text-to-Speech feedback, letting devices announce
+              their status or alert you about completed tasks.
+            </p>
+          </section>
+
+          <section id="multi-device">
+            <h2><i class="fas fa-layer-group"></i> Multi-Device Support</h2>
+            <p>
+              Manage multiple devices from a single interface. Group appliances
+              by room, function, or user, and control them collectively or
+              individually.
+            </p>
+          </section>
+
+          <section id="secure-cross-platform">
+            <h2><i class="fas fa-shield-alt"></i> Secure & Cross-Platform</h2>
+            <p>
+              Alpha ensures your devices and data are protected with encrypted
+              logins and secure device pairing. The platform works across
+              Android, iOS, and web, so you can control your home from anywhere.
+            </p>
+          </section>
+        </main>
+      </div>
     </div>
+
+    <script src="../js/features.js"></script>
   </body>
 </html>
