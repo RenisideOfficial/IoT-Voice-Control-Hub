@@ -46,7 +46,7 @@ Simply open the `index.html` in your browser
 ## 📂 Project Structure
 
 ```
-alpha/
+IoT-Voice-Control-Hub/
 │
 │── backend/                        # Django backend
 │   ├── asgi.py                     # ASGI entrypoint for Django Channels

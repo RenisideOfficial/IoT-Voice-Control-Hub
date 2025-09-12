@@ -55,7 +55,7 @@ def register_user(request):
             "theme": "light",
             "language": "en",
             "avatarUrl": "",
-            "bio": "Alpha User",
+            "bio": "Hub User",
             "preferredInputMode": "text",
             "accessibilitySettings": {"ttsEnabled": False, "sttEnabled": False},
             "timezone": "UTC",
