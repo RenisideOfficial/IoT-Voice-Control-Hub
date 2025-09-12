@@ -7,7 +7,7 @@ import {
 } from "../api/handlers/user.js";
 
 function initProfileWS() {
-  const token = localStorage.getItem("alpha_token");
+  const token = localStorage.getItem("token");
   if (!token) return;
 
   const wsUrl = `ws://${
@@ -18,7 +18,7 @@ function initProfileWS() {
   socket.onmessage = (evt) => {
     const data = JSON.parse(evt.data);
     if (data.type === "profile_update") {
-      localStorage.setItem("alpha_user", JSON.stringify(data.user));
+      localStorage.setItem("user", JSON.stringify(data.user));
       displayUsername();
       showNotification("Profile updated", "success");
     }
@@ -304,7 +304,7 @@ function handleVoiceCommand(cmd) {
 
 // Display username in UI
 function displayUsername() {
-  const userData = JSON.parse(localStorage.getItem("alpha_user") || "{}");
+  const userData = JSON.parse(localStorage.getItem("user") || "{}");
   const username = userData.username || "User";
 
   // Update all username elements
@@ -463,13 +463,13 @@ function initLogout() {
       if (confirm("Are you sure you want to logout?")) {
         try {
           await logoutUser();
-          localStorage.removeItem("alpha_token");
+          localStorage.removeItem("token");
           localStorage.removeItem("user");
           window.location.href = "./auth.html";
         } catch (error) {
           console.error("Logout error:", error);
           // Force logout even if API call fails
-          localStorage.removeItem("alpha_token");
+          localStorage.removeItem("token");
           localStorage.removeItem("user");
           window.location.href = "./auth.html";
         }
@@ -480,7 +480,7 @@ function initLogout() {
 
 // Check authentication status
 function checkAuth() {
-  const token = localStorage.getItem("alpha_token");
+  const token = localStorage.getItem("token");
   if (!token) {
     window.location.href = "../auth.html";
     return false;
@@ -588,7 +588,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (socket && socket.readyState === WebSocket.OPEN) return;
 
     // Get JWT token
-    const token = localStorage.getItem("alpha_token");
+    const token = localStorage.getItem("token");
     if (!token) {
       setStatus("Authentication required");
       return;

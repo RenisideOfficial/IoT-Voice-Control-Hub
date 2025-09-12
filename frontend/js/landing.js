@@ -11,7 +11,7 @@ document.querySelectorAll(".card").forEach((card, index) => {
 
 // Redirect if user is already authenticated
 document.addEventListener("DOMContentLoaded", () => {
-  if (localStorage.getItem("alpha_token")) {
+  if (localStorage.getItem("token")) {
     setTimeout(() => {
       window.location.href = "./pages/console.html";
     }, 2000);

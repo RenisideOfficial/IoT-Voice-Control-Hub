@@ -30,7 +30,7 @@ export async function loginUser(username_or_email, password) {
 export async function logoutUser() {
   try {
     const response = await apiClient.post("/auth/logout/");
-    localStorage.removeItem("alpha_token");
+    localStorage.removeItem("token");
     window.location.href = "./auth.html";
     return response.data;
   } catch (error) {

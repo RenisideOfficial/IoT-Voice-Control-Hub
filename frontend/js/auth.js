@@ -147,8 +147,8 @@ registerForm.addEventListener("submit", async function (e) {
     const data = await registerUser(username, email, password);
 
     if (data.status === "success") {
-      localStorage.setItem("alpha_token", data.access);
-      localStorage.setItem("alpha_user", JSON.stringify(data.user));
+      localStorage.setItem("token", data.access);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       // Show success message
       alert(`Registration successful! Welcome ${data.user.username}`);
@@ -162,7 +162,7 @@ registerForm.addEventListener("submit", async function (e) {
     console.log("Registration Failed: ", err.message);
     showFormError(
       registerForm,
-      "Internal Server Error Occured!, try again later"
+      "Internal Server Error Occurred!, try again later"
     );
   } finally {
     setLoadingState(submitButton, false);
@@ -194,8 +194,8 @@ loginForm.addEventListener("submit", async function (e) {
     const data = await loginUser(username_or_email, password);
 
     if (data.status === "success") {
-      localStorage.setItem("alpha_token", data.access);
-      localStorage.setItem("alpha_user", JSON.stringify(data.user));
+      localStorage.setItem("token", data.access);
+      localStorage.setItem("user", JSON.stringify(data.user));
 
       // Show success message
       alert(`Login successful! Welcome ${data.user.username}`);
@@ -226,7 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const token = urlParams.get("token");
 
   if (token) {
-    localStorage.setItem("alpha_token", token);
+    localStorage.setItem("token", token);
 
     // Fetch user profile to get complete user data
     async function fetchUserProfile() {
@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (response.ok) {
           const userData = await response.json();
-          localStorage.setItem("alpha_user", JSON.stringify(userData));
+          localStorage.setItem("user", JSON.stringify(userData));
           window.location.href = "./console.html";
         } else {
           throw new Error("Failed to fetch user profile");
